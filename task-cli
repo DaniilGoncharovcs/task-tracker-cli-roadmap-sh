@@ -1,0 +1,10 @@
+#!/usr/bin/python
+from task_handler import TaskHandler
+from console_handler import ConsoleHandler
+
+if __name__ == '__main__':
+    #console = ConsoleHandler()
+    #console_command, console_arguments = console.parse_cli()
+    task_handler = TaskHandler()
+
+    # exit(0)
