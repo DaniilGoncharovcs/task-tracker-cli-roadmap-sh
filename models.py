@@ -1,5 +1,5 @@
 from datetime import datetime
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from enum import Enum
 
 class TaskStatus(Enum):
@@ -10,10 +10,11 @@ class TaskStatus(Enum):
 @dataclass
 class Task:
     id: int
-    description: str
-    status: TaskStatus
-    createdAt: datetime
-    updatedAt: datetime
+    description: str = field()
+    status: TaskStatus = field()
+    createdAt: datetime = field()
+    updatedAt: datetime = field()
+    filename: str = field()
 
     @classmethod
     def from_dict(cls, data: dict, file_name: str):
@@ -40,5 +41,6 @@ class Task:
             description = data.get('description'),
             status = task_status,
             createdAt = task_created,
-            updatedAt = task_updated
+            updatedAt = task_updated,
+            filename = file_name
         )
