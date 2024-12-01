@@ -1,5 +1,6 @@
 # Task Tracker CLI
 This repository containes an implementation of a Task Tracker CLI. The ide for the project was taken from [roadmap.sh](https://roadmap.sh/projects/task-tracker).
+I tried to write this program using only th standart python library.
 
 ## Description
 
