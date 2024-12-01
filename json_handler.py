@@ -29,6 +29,13 @@ class JsonHandler:
     
     def dump_task(self, task: Task):
         file_path = Path(f'{self.tasks_path.name}/task{task.id}.json')
-        print(file_path)
+
+        json_task = asdict(task)
+        del json_task['filename']
+
         with file_path.open('w', encoding='UTF-8') as f:
-            dump(asdict(task), f, indent=4, default=str)
+            dump(json_task, f, indent=4, default=str)
+    
+    def remove_json(self, task: Task):
+        path = Path(f'json_tasks/{task.filename}')
+        path.unlink()

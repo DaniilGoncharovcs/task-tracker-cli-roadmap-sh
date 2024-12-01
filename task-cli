@@ -3,8 +3,25 @@ from task_handler import TaskHandler
 from console_handler import ConsoleHandler
 
 if __name__ == '__main__':
-    #console = ConsoleHandler()
-    #console_command, console_arguments = console.parse_cli()
+    console = ConsoleHandler()
+    console_command, console_arguments = console.parse_cli()
     task_handler = TaskHandler()
-
-    # exit(0)
+    
+    match console_command:
+        case 'list':
+            task_handler.get_tasklist(console_arguments[0])
+        case 'add':
+            task_handler.create_task(console_arguments)
+            print('New task created successfully')
+        case 'update':
+            task_handler.update_task(int(console_arguments[0]), console_arguments[1::])
+            print('Task updated successfully')
+        case 'delete':
+            task_handler.delete_task(int(console_arguments[0]))
+            print('Task deleted successfully')
+        case 'mark-in-progress':
+            task_handler.mark_task(console_command, int(console_arguments[0]))
+            print('Task marked successfully')
+        case 'mark-done':
+            task_handler.mark_task(console_command, int(console_arguments[0]))
+            print('Task marked successfully')

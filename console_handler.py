@@ -28,7 +28,7 @@ class ConsoleHandler:
             case 'add':
                 pass
             case 'list':
-                if len(self.arguments) == 2 or self.arguments[2] not in ['done', 'todo', 'in-progress']:
+                if len(self.arguments) == 2 or self.arguments[2] not in ['all', 'done', 'todo', 'in-progress']:
                     exit('You give uncorrct status. You should to use done, todo, in-progress')                
             case _:
                 if not self.arguments[2].isnumeric():
