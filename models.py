@@ -17,7 +17,6 @@ class Task:
 
     @classmethod
     def from_dict(cls, data: dict, file_name: str):
-        print(data)
         try:
             task_id = int(data.get('id', None))
         except ValueError:
